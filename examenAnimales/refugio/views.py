@@ -20,7 +20,7 @@ def ejercicio2(request):
     return render(request, "refugio/ej2.html", {"animales": animales, "titulo": "Ejercicio 2"})
 
 def ejercicio3(request):
-    animales = Animal.objects.filter(animalvacunas__isnull=True).order_by("-edad_estimada")
+    animales = Animal.objects.filter(animalvacunas__isnull=False).order_by("-edad_estimada")
     return render(request, "refugio/ej3.html", {"animales": animales, "titulo": "Ejercicio 3"})
 
 def ejercicio4(request, anio):
