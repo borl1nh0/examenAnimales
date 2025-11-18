@@ -1,4 +1,8 @@
-<h1>Ejercicio 1</h1>
-{% for a in animales %}
-<p>{{ a.nombre }} - {{ a.centro.nombre }} - {{ a.centro.refugio.nombre }}</p>
-{% endfor %}
+<h1>{{ titulo }}</h1>
+{% if animales %}
+  {% for a in animales %}
+    <p>{{ a.nombre }} — {{ a.centro.nombre }} — {{ a.centro.refugio.nombre }}</p>
+  {% endfor %}
+{% else %}
+  <p>No hay datos.</p>
+{% endif %}
