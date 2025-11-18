@@ -20,7 +20,7 @@ def ejercicio2(request):
     return render(request, "refugio/ej2.html", {"animales": animales, "titulo": "Ejercicio 2"})
 
 def ejercicio3(request):
-    animales = Animal.objects.filter(animalvacunas__isnull=False).order_by("-edad_estimada")
+    animales = Animal.objects.filter(animalvacunas__isnull=True).order_by("-edad_estimada")
     return render(request, "refugio/ej3.html", {"animales": animales, "titulo": "Ejercicio 3"})
 
 def ejercicio4(request, anio):
@@ -32,7 +32,7 @@ def ejercicio4(request, anio):
 def ejercicio5(request, centro_nombre):
     animales = Animal.objects.filter(
         centro__nombre__icontains=centro_nombre
-    ).annotate(media=Avg("revisionveterinaria__puntuacion_salud")).filter(media__lt=100)  
+    ).annotate(media=Avg("revisionveterinaria__puntuacion_salud")).filter(media__lt=50)  
     return render(request, "refugio/ej5.html", {"animales": animales, "centro": centro_nombre})
 
 def ejercicio6(request, veterinario_nombre, fabricante, refugio_nombre):
