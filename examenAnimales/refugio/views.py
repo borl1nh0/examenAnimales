@@ -40,5 +40,7 @@ def ejercicio6(request, veterinario_nombre, fabricante, refugio_nombre):
         veterinario__nombre__icontains=veterinario_nombre,
         animal__vacunas__fabricante__icontains=fabricante,
         animal__centro__refugio__nombre__icontains=refugio_nombre
+        
+
     ).order_by("-fecha").first()
     return render(request, "refugio/ej6.html", {"revision": revision})

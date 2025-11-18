@@ -1,6 +1,6 @@
 <h1>Ejercicio 6</h1>
 {% if revision %}
-<p>{{ revision.animal.nombre }} - {{ revision.puntuacion_salud }} - {{ revision.veterinario.nombre }}</p>
+<p>{{ revision.animal.nombre }} - {{ revision.puntuacion_salud }} - {{ revision.veterinario.nombre }} {{revision.fecha}}</p>
 {% else %}
 <p>No se encontró revisión.</p>
 {% endif %}
