@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.db.models import Avg
 from .models import *
@@ -8,7 +9,7 @@ def index(request):
 def ejercicio1(request):
     animales = Animal.objects.select_related("centro", "centro__refugio").prefetch_related("vacunas").filter(
         nombre__icontains="Max",
-        centro__refugio__nombre__icontains="Animlaes_Felices"
+        centro__refugio__nombre__icontains="Animales Felices"  
     )
     return render(request, "refugio/ej1.html", {"animales": animales})
 
